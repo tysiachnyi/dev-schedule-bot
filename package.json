@@ -7,7 +7,12 @@
     "dev": "node --import tsx src/schedule.ts",
     "start": "node --import tsx src/schedule.ts",
     "build": "tsc",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "format": "prettier --write src/**/*.ts",
+    "format:check": "prettier --check src/**/*.ts",
+    "quality-check": "npm run type-check && npm run lint && npm run format:check"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +24,10 @@
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "prettier": "^3.0.0",
     "ts-node": "^10.9.0",
     "tsx": "^4.7.0",
     "typescript": "^5.0.0"

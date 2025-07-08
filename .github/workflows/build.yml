@@ -32,6 +32,12 @@ jobs:
       - name: TypeScript type check
         run: npm run type-check
 
+      - name: ESLint check
+        run: npm run lint
+
+      - name: Prettier format check
+        run: npm run format:check
+
       - name: Build TypeScript
         run: npm run build
 
@@ -44,5 +50,5 @@ jobs:
 
       - name: Test run (dry run)
         env:
-          GITHUB_ACTIONS: "false" # Prevent actual save
+          GITHUB_ACTIONS: 'false' # Prevent actual save
         run: npm run dev || echo "App structure is valid"
