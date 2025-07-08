@@ -2,8 +2,9 @@
   "name": "dev-schedule-bot",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "node schedule.js",
+    "start": "node -r dotenv/config schedule.js -",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,6 +12,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "dotenv": "^17.1.0",
     "node-fetch": "^2.7.0"
   }
 }
