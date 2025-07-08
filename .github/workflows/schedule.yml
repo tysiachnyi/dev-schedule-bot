@@ -1,0 +1,27 @@
+name: Weekly Dev Schedule
+
+on:
+  schedule:
+    - cron: "0 9 * * 1" # Every Monday 09:00 UTC
+  workflow_dispatch: # Optional manual trigger
+
+jobs:
+  post_schedule:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Post weekly dev schedule
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: node schedule.js
