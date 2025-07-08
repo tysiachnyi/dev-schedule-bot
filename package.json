@@ -1,11 +1,11 @@
 {
   "name": "dev-schedule-bot",
   "version": "1.0.0",
-  "main": "schedule.ts",
+  "main": "src/schedule.ts",
   "type": "module",
   "scripts": {
-    "dev": "ts-node --esm schedule.ts",
-    "start": "ts-node --esm schedule.ts",
+    "dev": "node --loader ts-node/esm -r dotenv/config src/schedule.ts",
+    "start": "node --loader ts-node/esm -r dotenv/config src/schedule.ts",
     "build": "tsc",
     "type-check": "tsc --noEmit"
   },
