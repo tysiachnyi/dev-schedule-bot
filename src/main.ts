@@ -5,10 +5,14 @@ import { config } from 'dotenv';
 
 config();
 
-const SLACK_WEBHOOK_URL: string = process.env.SLACK_WEBHOOK_URL!;
-const AUTH_TOKEN: string = process.env.AUTH_TOKEN!;
-const GIST_ID: string = process.env.GIST_ID!;
-const GIST_FILE_NAME: string = process.env.GIST_FILE_NAME!;
+const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL as string;
+const AUTH_TOKEN = process.env.AUTH_TOKEN as string;
+const GIST_ID = process.env.GIST_ID as string;
+const GIST_FILE_NAME = process.env.GIST_FILE_NAME as string;
+
+if (!SLACK_WEBHOOK_URL || !AUTH_TOKEN || !GIST_ID || !GIST_FILE_NAME) {
+  throw new Error('❌ Missing required environment variables.');
+}
 
 async function loadDevs(): Promise<string[]> {
   const response = await fetch(`https://api.github.com/gists/${GIST_ID}`, {

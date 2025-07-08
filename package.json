@@ -1,11 +1,11 @@
 {
   "name": "dev-schedule-bot",
   "version": "1.0.0",
-  "main": "src/schedule.ts",
+  "main": "src/main.ts",
   "type": "module",
   "scripts": {
-    "dev": "node --import tsx src/schedule.ts",
-    "start": "node --import tsx src/schedule.ts",
+    "dev": "node --import tsx src/main.ts",
+    "start": "node --import tsx src/main.ts",
     "build": "tsc",
     "type-check": "tsc --noEmit",
     "lint": "eslint src/**/*.ts",
