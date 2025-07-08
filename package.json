@@ -4,10 +4,10 @@
   "main": "schedule.ts",
   "type": "module",
   "scripts": {
-    "start": "node --loader ts-node/esm -r dotenv/config schedule.ts",
-    "dev": "node --loader ts-node/esm -r dotenv/config schedule.ts",
+    "dev": "ts-node --esm schedule.ts",
+    "start": "ts-node --esm schedule.ts",
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "type-check": "tsc --noEmit"
   },
   "keywords": [],
   "author": "",
