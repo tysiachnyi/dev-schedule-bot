@@ -4,7 +4,13 @@ It is designed to run weekly, and it can be configured with environment variable
 
 ## Setup
 
-1. Create a GitHub Gist with the list of developers and their schedules in JSON format
+1. Create a GitHub Gist with the list of developers in JSON format
+   example:
+
+```json
+["dev1", "dev2", "dev3", "dev4", "dev5"]
+```
+
 2. Create a Slack webhook URL for the channel where you want to post the message
 3. Create a Repository secrets in the Github with the following variables:
 
