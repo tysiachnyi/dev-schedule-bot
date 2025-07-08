@@ -4,8 +4,8 @@
   "main": "src/schedule.ts",
   "type": "module",
   "scripts": {
-    "dev": "node --loader ts-node/esm -r dotenv/config src/schedule.ts",
-    "start": "node --loader ts-node/esm -r dotenv/config src/schedule.ts",
+    "dev": "node --import tsx src/schedule.ts",
+    "start": "node --import tsx src/schedule.ts",
     "build": "tsc",
     "type-check": "tsc --noEmit"
   },
@@ -15,12 +15,12 @@
   "description": "",
   "dependencies": {
     "dotenv": "^17.1.0",
-    "node-fetch": "^2.7.0"
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "@types/node-fetch": "^2.6.0",
     "ts-node": "^10.9.0",
+    "tsx": "^4.7.0",
     "typescript": "^5.0.0"
   }
 }

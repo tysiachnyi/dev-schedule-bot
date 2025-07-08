@@ -1,6 +1,10 @@
 import fetch from "node-fetch";
 import { GistResponse, SlackMessage } from "./types";
 import { format, isGitHubActions, rotate } from "./utils";
+import { config } from "dotenv";
+
+// Load environment variables
+config();
 
 const slackWebhookUrl: string = process.env.SLACK_WEBHOOK_URL!;
 const authToken: string = process.env.AUTH_TOKEN!;
