@@ -1,13 +1,13 @@
 import fetch from "node-fetch";
 
 const slackWebhookUrl = process.env.SLACK_WEBHOOK_URL;
-const githubToken = process.env.GITHUB_TOKEN;
+const authToken = process.env.AUTH_TOKEN;
 const gistId = process.env.GIST_ID;
 const gistFileName = process.env.GIST_FILE_NAME;
 
 async function loadDevs() {
   const response = await fetch(`https://api.github.com/gists/${gistId}`, {
-    headers: { Authorization: `token ${githubToken}` },
+    headers: { Authorization: `token ${authToken}` },
   });
   const gist = await response.json();
   const content = gist.files[gistFileName].content;
@@ -22,7 +22,7 @@ async function save(devs) {
   await fetch(`https://api.github.com/gists/${gistId}`, {
     method: "PATCH",
     headers: {
-      Authorization: `token ${githubToken}`,
+      Authorization: `token ${authToken}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
