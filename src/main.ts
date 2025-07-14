@@ -3,7 +3,10 @@ import { GistResponse, SlackMessage } from './types';
 import { format, isGitHubActions, rotate } from './utils';
 import { config } from 'dotenv';
 
-config();
+// Only load .env file if not running in GitHub Actions
+if (!process.env.GITHUB_ACTIONS) {
+  config();
+}
 
 const SLACK_WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL as string;
 const AUTH_TOKEN = process.env.AUTH_TOKEN as string;
@@ -11,6 +14,14 @@ const GIST_ID = process.env.GIST_ID as string;
 const GIST_FILE_NAME = process.env.GIST_FILE_NAME as string;
 
 if (!SLACK_WEBHOOK_URL || !AUTH_TOKEN || !GIST_ID || !GIST_FILE_NAME) {
+  console.error('❌ Missing environment variables:');
+  console.error(
+    'SLACK_WEBHOOK_URL:',
+    SLACK_WEBHOOK_URL ? '✅ Set' : '❌ Missing'
+  );
+  console.error('AUTH_TOKEN:', AUTH_TOKEN ? '✅ Set' : '❌ Missing');
+  console.error('GIST_ID:', GIST_ID ? '✅ Set' : '❌ Missing');
+  console.error('GIST_FILE_NAME:', GIST_FILE_NAME ? '✅ Set' : '❌ Missing');
   throw new Error('❌ Missing required environment variables.');
 }
 

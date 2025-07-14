@@ -30,7 +30,7 @@ jobs:
       - name: Post weekly dev schedule
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIST_ID: ${{ secrets.GIST_ID }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIST_FILE_NAME: developers.json
         run: npm start
