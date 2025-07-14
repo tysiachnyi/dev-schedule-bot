@@ -10,9 +10,9 @@ const AUTH_TOKEN = process.env.AUTH_TOKEN as string;
 const GIST_ID = process.env.GIST_ID as string;
 const GIST_FILE_NAME = process.env.GIST_FILE_NAME as string;
 
-if (!SLACK_WEBHOOK_URL || !AUTH_TOKEN || !GIST_ID || !GIST_FILE_NAME) {
-  throw new Error('❌ Missing required environment variables.');
-}
+// if (!SLACK_WEBHOOK_URL || !AUTH_TOKEN || !GIST_ID || !GIST_FILE_NAME) {
+//   throw new Error('❌ Missing required environment variables.');
+// }
 
 async function loadDevs(): Promise<string[]> {
   const response = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
