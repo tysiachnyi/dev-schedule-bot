@@ -2,7 +2,7 @@ name: Weekly Dev Schedule
 
 on:
   schedule:
-    - cron: "0 9 * * 1" # Every Monday 09:00 UTC
+    - cron: '0 9 * * 1' # Every Monday 09:00 UTC
   workflow_dispatch: # Optional manual trigger
 
 jobs:
@@ -32,4 +32,5 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           GIST_ID: ${{ secrets.GIST_ID }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIST_FILE_NAME: developers.json
         run: npm start
